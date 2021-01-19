@@ -26,9 +26,9 @@ public class AuthorsModel {
     public String author_name;
 
 
-    @ManyToMany(mappedBy = "authors")
+    @ManyToMany(mappedBy = "authorsList")
     //@JoinColumn
-    @JsonView(Views.Internal.class)
+    @JsonView(Views.Public.class)
     private List<BookModel> books;
 
 

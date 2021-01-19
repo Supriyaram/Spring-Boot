@@ -30,7 +30,7 @@ public class BookModel {
             name = "book_auth",
             joinColumns = @JoinColumn(name = "isbn"),
             inverseJoinColumns = @JoinColumn(name = "author_id"))
-    @JsonView(Views.Public.class)
+    @JsonView(Views.Internal.class)
     private List<AuthorsModel> authorsList;
 
 

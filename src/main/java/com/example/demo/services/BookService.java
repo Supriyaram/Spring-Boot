@@ -64,13 +64,19 @@ public class BookService {
             authorsModelList.add(author);
             bok.setAuthorsList(authorsModelList);
             author.setBooks(booksList);
+            bookRepository.save(bok);
+            authorRepository.save(author);
+
         }
-        else if(bok.getAuthorsList()==null)
+        else if(bok.getAuthorsList()!=null)
 
         {
            //ArrayList<AuthorsModel>b=new ArrayList<AuthorsModel>();
             bok.getAuthorsList().add(author);
-            //author.getBooks().add(bok);
+            bookRepository.save(bok);
+            //authorRepository.save(author);
+
+
             //bok.setAuthorsList(authorsModelList);
              //author.setBooks(author.getBooks());
             //booksList.add(bok);
@@ -80,9 +86,14 @@ public class BookService {
             //author.setBooks(booksList);
 
         }
-        else if(author.getBooks()==null)
-        bookRepository.save(bok);
-        authorRepository.save(author);
+        else if(author.getBooks()!=null)
+        {
+
+            author.getBooks().add(bok);
+           // bookRepository.save(bok);
+            authorRepository.save(author);
+
+        }
 
         //System.out.println(bok.toString());
        // System.out.println(authorsModelList);
